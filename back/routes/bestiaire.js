@@ -4,6 +4,7 @@ const connection = require('../bdd/bdd.js')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  console.log('je rentre dans back route get bestiaire')
   connection.query('SELECT * FROM bestiaire', function(err, result, fields){
     if (err){
       res.status(500).json({
@@ -12,7 +13,7 @@ router.get('/', function(req, res, next) {
       })
     }
     else{
-      res.json(result); 
+      res.send(JSON.stringify(result));
       console.log(result)
     }
   })

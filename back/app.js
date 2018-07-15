@@ -8,8 +8,10 @@ var connection = require ('./bdd/bdd');
 
 var index = require('./routes/index');
 var bestiaire = require('./routes/bestiaire');
-
+var debug = require('debug')('back:server');
+var http = require('http');
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +46,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+let server  =  app.listen( process.env.PORT  ||  4000, function(){
+  console.log('Listening on port '  +  server.address().port);
+});
+
 
 
 module.exports = app;
