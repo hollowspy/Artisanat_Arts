@@ -1,54 +1,46 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import './App.css';
+import CarouselPhoto from './Components/Carousel'
+import NavBar from './Components/NavBar'
+import MenuHome from './Components/MenuHome'
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      bestiaire: [],
-    };
-  }
-  componentDidMount() {
-    console.log('je rentre dans le fetch');
-    fetch('/bestiaire')
-      .then(res => res.json())
-      .then(result => this.setState({ bestiaire: result }));
+    this.state = {};
   }
 
-  render() {
-    const bestiaire = this.state.bestiaire;
-    console.log(bestiaire);
+   render() {
+    // <img src="../images/logo_loginfo.png" alt="logo muriel" className="logo_muriel"/>
+   
     return (
       <div className="App">
+      <div className="NavLeft">
+      <NavBar />
+      </div>
+      <div className="MainScreen">    
         <Grid fluid>
-          <Row className="titleNav">
-            <Col xs={1} className="col1">
-              <div className="title">
-                <div className="word1">
-                  <p> A </p>
-                  <p> R</p>
-                  <p> T </p>
-                  <p> I </p>
-                  <p> S </p>
-                  <p> A </p>
-                  <p> N </p>
-                  <p> A </p>
-                  <p> T </p>
-                </div>
-                <div className="word2">
-                  <p> D'</p>
-                  <p> A </p>
-                  <p> R </p>
-                  <p> T </p>
-                </div>
-              </div>
+          <Row className="firstLigne">
+            <Col xs={12}  md={4} mdOffset={1} className="test">
+              <CarouselPhoto />
             </Col>
-            <Col fluid xs={11} className="col10">
-              <div className="acceuil"> Ici le reste de la page d'acceuil</div>
+            <Col xs={12} md={4}  mdOffset={1}  className="test1">
+              <h1> MOSAIQUE</h1>
+              <h3> Muriel Niedzwiecki </h3>
             </Col>
           </Row>
+          <Row className="secondLigne">
+          <Col xs={12} md={4} mdOffset={1} className="menu">
+            <MenuHome />
+          </Col>
+          <Col xs={12} md={4} mdOffset={1} className="photoMuriel">
+          <img src="../images/dev03.jpg" alt="muriel" className="logo_muriel"/>
+          </Col>
+          
+          </Row>
         </Grid>
+        </div>
       </div>
     );
   }

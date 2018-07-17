@@ -1,23 +1,40 @@
 .App{
  
   font-size: 16px;
-  text-align: center
+  text-align: center;
+  display: flex
 }
 
-.col1{
-  border:2px red solid;
-}
-.col10{
-  border:2px blue solid;
+.test1{
+
+  margin-top : 5%;
+  
 }
 
-.title{
-  padding : 30px 0 30px 0;
-  height: 100vh;
-  font-size: 3rem;
-  font-weight: bold;
+.firstLigne{
+  margin-top: 5%;
 }
 
-.word1{
-  margin-bottom: 40%;
+.secondLigne{
+  margin-top : 5%;
 }
+
+
+.NavLeft{
+  width: 10%;
+}
+
+.logo_muriel{
+  width: 200px;
+  height: auto;
+}
+
+
+.MainScreen{
+  width:92%
+}
+
+.menu{
+  margin-top:5%;
+}
+
