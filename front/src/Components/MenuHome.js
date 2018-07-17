@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+
 
 class MenuHome extends Component {
   constructor(props) {
@@ -8,9 +10,9 @@ class MenuHome extends Component {
   render() {
     return (
       <ul>
-        <li> Bestiaire </li>
-        <li> Vegetal </li>
-        <li> Deco </li>
+        <Link to="/bestiaire"><li> Bestiaire </li></Link>
+        <Link to="/vegetal"><li> vegetal </li></Link>
+        <Link to="/deco"><li> deco </li></Link>
       </ul>
     );
   }
