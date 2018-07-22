@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import _ from 'lodash';
-import './Carousel.css';
+import '../style/Carousel.css';
 
 
 class CarouselPhoto extends Component {

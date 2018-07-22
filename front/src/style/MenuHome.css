@@ -1,0 +1,8 @@
+.menu{
+  border:2px red solid;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  text-decoration: none;
+  margin-top:5%;
+}

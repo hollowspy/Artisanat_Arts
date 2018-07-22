@@ -1,3 +1,15 @@
+.globalContainer{
+  background-color:#d6d6d2;
+  display: flex;
+}
 
+.leftContainer{
+  background-color : #f5ec6f;
+  border:2px #a5a5a4 solid;
+}
+
+.mainContainer{
+  width: 100%
+}
 
 
