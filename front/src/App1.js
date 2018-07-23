@@ -10,7 +10,6 @@ import FicheTest from './Components/FicheTest';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -19,22 +18,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="globalContainer">
-        <div className="leftContainer">
-          <NavBar />
-        </div>
-        <div className="mainContainer">
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/bestiaire" component={Bestiaire} />
-              <Route exact path="/bestiaire/:id" component={FicheTest} />
-              <Route exact path="/vegetal" component={Vegetal} />
-              <Route exact path="/deco" component={Deco} />
-            </Switch>
+      <Grid fluid>
+        <Row className="firstligne">
+          <Col xs={12} sm={1} className="menuLeft">
+            <NavBar />
+          </Col>
+          <Col xs={12} md={11}>
+         <BrowserRouter>
+         <Switch>
+         <Route exact path="/" component={Home} />
+         <Route exact path="/bestiaire" component={Bestiaire} />
+         <Route exact path="/bestiaire/:id" component={FicheTest} />
+         <Route exact path="/vegetal" component={Vegetal} />
+         <Route exact path="/deco" component={Deco} />
+       </Switch>
           </BrowserRouter>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

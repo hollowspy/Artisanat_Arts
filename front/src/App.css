@@ -1,15 +1,7 @@
-.globalContainer{
-  background-color:#d6d6d2;
-  display: flex;
-}
 
-.leftContainer{
+.menuLeft{
   background-color : #f5ec6f;
   border:2px #a5a5a4 solid;
+  height: 100%;
 }
-
-.mainContainer{
-  width: 100%
-}
-
 
