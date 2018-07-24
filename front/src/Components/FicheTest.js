@@ -52,12 +52,12 @@ class SimpleSlider extends Component {
     const { fiche, source } = this.state;
     console.log('fiche', { fiche });
 
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-      </Popover>
-    );
-    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
+    // const popover = (
+    //   <Popover id="modal-popover" title="popover">
+    //     very popover. such engagement
+    //   </Popover>
+    // );
+    // const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
 
     return (
       <div>

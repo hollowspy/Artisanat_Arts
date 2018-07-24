@@ -8,6 +8,7 @@ var connection = require('./bdd/bdd');
 
 var index = require('./routes/index');
 var bestiaire = require('./routes/bestiaire');
+var vegetal = require('./routes/vegetal')
 var debug = require('debug')('back:server');
 var http = require('http');
 var app = express();
@@ -35,7 +36,7 @@ app.use(function(req, res, next) {
 
 app.use('/', index);
 app.use('/bestiaire', bestiaire);
-
+app.use('/vegetal', vegetal);
 
 
 // catch 404 and forward to error handler
