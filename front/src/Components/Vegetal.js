@@ -80,11 +80,16 @@ class Vegetal extends Component {
                         dialogClassName="custom-modal"
                       >
                         <Modal.Header closeButton>
-                          <Modal.Title>Modal heading</Modal.Title>
+                          <Modal.Title>{tableau.name}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                           <h4>phoo dans modal ! </h4>
                           <img src={tableau.photo_principale} className="photo_modal" />
+                          <ul>
+                          <li> Nom : {tableau.name}</li>
+                          <li> Materiaux utilisés : {tableau.materials}</li>
+                          <li> Description : {tableau.reproduction}</li>
+                          </ul>
                         </Modal.Body>
                         <Modal.Footer>
                           <Button onClick={this.handleClose}>Close</Button>
