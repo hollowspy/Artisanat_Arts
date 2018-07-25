@@ -7,11 +7,12 @@ import Deco from './Components/Deco';
 import NavBar from './Components/NavBar';
 import FicheBestiaire from './Components/FicheBestiaire';
 import FicheTest from './Components/FicheTest';
+import Admin from './Components/Admin';
 import Login from './Components/Login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-class App extends Component {
+class App extends Component { 
   constructor(props) {
     super(props);
     this.state = {};
@@ -22,6 +23,8 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/admin" component={Login} />
+          <Route exact path="/admin/:name" component={Admin} />
+          
           <Grid fluid>
             <Row className="firstligne">
               <Col xs={1} sm={1} className="menuLeft">

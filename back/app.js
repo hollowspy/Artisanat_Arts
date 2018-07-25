@@ -4,12 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+let passport = require('passport'),
+  LocalStrategy = require('passport-local').Strategy;
 var connection = require('./bdd/bdd');
 
 var index = require('./routes/index');
 var bestiaire = require('./routes/bestiaire');
-var vegetal = require('./routes/vegetal')
-var admin = require('./routes/admin')
+var vegetal = require('./routes/vegetal');
+var admin = require('./routes/admin');
 var debug = require('debug')('back:server');
 var http = require('http');
 var app = express();
@@ -38,8 +40,7 @@ app.use(function(req, res, next) {
 app.use('/', index);
 app.use('/bestiaire', bestiaire);
 app.use('/vegetal', vegetal);
-app.use('/admin', admin)
-
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,10 +60,49 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Passport
+
+passport.use(
+  'local',
+  new LocalStrategy(
+    {
+      usernameField: 'email',
+      passwordField: 'password',
+      session: false,
+    },
+    (email, password, done) => {
+      try {
+        let sql = `SELECT * FROM admin WHERE mail = '${email}'`; 
+        console.log(sql)
+        connection.query(
+          sql,
+          (err, rows) => {
+            if (err) {
+              return done(err, 'pas encore bon');
+            } else if (!rows[0]) {
+              return done(null, false, {
+                flash: 'No user found',
+              });
+            } else if (password === rows[0].password) {
+              const user = rows[0].name; 
+              console.log('App', user)            
+              return done(null, user);
+            } else {
+              return donne(null, false, {
+                flash: 'Mauvais mdp',
+              });
+            }
+          }
+        );
+      } catch (e) {
+        console.log('err', e);
+      }
+    }
+  )
+);
+
 let server = app.listen(process.env.PORT || 4000, function() {
   console.log('Listening on port ' + server.address().port);
 });
-
-
 
 module.exports = app;

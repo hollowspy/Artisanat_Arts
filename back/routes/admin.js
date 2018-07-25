@@ -1,40 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const passport = require('passport');
 const connection = require('../bdd/bdd.js')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  console.log('je rentre dans back route get admin')
-  connection.query('SELECT * FROM bestiaire', function(err, result, fields){
-    if (err){
-      res.status(500).json({
-        "status code" : 500,
-        "status message" : "internet servor error"
-      })
-    }
-    else{
-      res.send(JSON.stringify(result));
-      console.log(result)
-    }
-  })
-});
-
-router.get('/:id', function(req, res, next) {
-  console.log('je rentre dans back route get admin/id')
-  let id = req.params.id
-  let sql = `SELECT * FROM bestiaire WHERE id=${id}`
-  connection.query(sql, function(err, result, fields){
-    if (err){
-      res.status(500).json({
-        "status code" : 500,
-        "status message" : "internet servor error"
-      })
-    }
-    else{
-      res.send(JSON.stringify(result));
-      console.log(result)
-    }
-  })
+router.post('/', (req, res) => {
+  passport.authenticate('local', (err, user) => {
+    console.log('route admin', user)
+    if (err) return res.status(500).send(`${err} dans auth/signin`);
+    if (!user) return res.status(400).json({ flash: 'Not a yet a Success' });
+    return res.json({ user, flash: 'ok' });
+  })(req, res);
 });
 
 module.exports = router;
+
