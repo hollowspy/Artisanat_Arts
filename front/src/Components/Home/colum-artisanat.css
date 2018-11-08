@@ -1,0 +1,33 @@
+.leftColumn{
+    height:100%; 
+}
+
+
+li{ 
+    list-style-type: none;
+    font-size: 2em;
+    font-weight: bold;
+    margin:auto;
+    color:rgb(219,215,186)
+}
+
+.logoNavBar{
+    width : 100px;
+    height: 100px;
+    position: fixed;
+    left:15px;
+}
+
+.firstWord, .secondWord{
+    margin-top : 35px; 
+    margin-bottom: 25px;
+    position:fixed;
+}
+
+.firstWord{
+    top:65px;
+}
+
+.secondWord{
+   top:500px;
+}
