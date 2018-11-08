@@ -10,7 +10,9 @@ import './home.css'
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            title : 'Muriel NIEDZWIECKI'
+        };
     }
     render() {
         return (
@@ -19,6 +21,14 @@ class Home extends Component {
                     <Row>
                         <Col xs={1} className="leftColum"> <ColumArtisanat></ColumArtisanat></Col>
                         <Col xs={11}>  
+                            <Container fluid>
+                                <Row>
+                                    <Col xs={10} md={{ span: 8, offset: 2 }}>
+                                        <h1>{this.state.title}</h1>
+                                        <h1>Mosaique</h1>
+                                    </Col>
+                                </Row>
+                            </Container>
                             <Menu></Menu>
                             <Carousel></Carousel>
                             <CardMuriel></CardMuriel>
