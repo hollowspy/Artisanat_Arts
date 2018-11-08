@@ -13,7 +13,7 @@ class ColumArtisanat extends Component {
         return (
             <div>
                 <div>
-                <img src="http://localhost:4000/images/logoNavBar.jpg" alt="Logo" class="logoNavBar"/>
+                <img src="http://localhost:4000/images/logoNavBar.jpg" alt="Logo" className="logoNavBar"/>
                 </div>
                 <div className="firstWord">
                     <ul>

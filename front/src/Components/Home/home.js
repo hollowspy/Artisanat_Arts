@@ -28,9 +28,13 @@ class Home extends Component {
                                         <h1>Mosaique</h1>
                                     </Col>
                                 </Row>
+                                <Row>
+                                    <Col xs={12} className="containerMenuCarousel">
+                                        <Menu></Menu>
+                                        <Carousel></Carousel>
+                                    </Col>
+                                </Row>
                             </Container>
-                            <Menu></Menu>
-                            <Carousel></Carousel>
                             <CardMuriel></CardMuriel>
                             <FormContact></FormContact>
                         </Col>
