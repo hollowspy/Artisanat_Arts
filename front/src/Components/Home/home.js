@@ -63,10 +63,13 @@ class Home extends Component {
                                         </Container>
 
                                     </Col>
+                                    <Col md={4} className="cardMuriel">
+                                    <CardMuriel></CardMuriel>
+                                    </Col>
 
                                 </Row>
                             </Container>
-                            <CardMuriel></CardMuriel>
+                           
                             <FormContact></FormContact>
                         </Col>
                     </Row>

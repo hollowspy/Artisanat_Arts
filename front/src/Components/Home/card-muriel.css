@@ -1,0 +1,32 @@
+.photoMuriel{
+    margin-top:20px;
+    max-width: 200px;
+    height:auto;
+    
+}
+
+.card-text{
+  margin-top:50px;
+  color:rgb(219,215,186);
+  font-size: 1.2em;
+  
+}
+
+.card-title{
+  font-weight: bold;
+  color:rgb(219,215,186);
+}
+
+@media screen and (min-width: 960px) {
+    .photoMuriel {
+      width : 200px;
+      height : 200px;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    .photoMuriel {
+      width : 150px;
+      height : 150px;
+    }
+  }
