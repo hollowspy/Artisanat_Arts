@@ -11,3 +11,73 @@
     padding-bottom: 100px;
    
  }
+
+ .container-muriel{
+    padding-top: 100px;
+    padding-bottom: 80px;
+    background-color:  rgba(57, 86, 90, 0.9);
+    z-index: 0;
+   
+}
+
+
+.colPhotoAcceuilSection{
+    text-align: center
+}
+
+
+.snip1539 {
+    display:inline-block;
+    overflow: hidden;
+    margin: 10px 8px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    box-shadow: none !important;
+    padding: 16px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .snip1539 img {
+    width: 250px;
+    height: 250px;
+    backface-visibility: hidden;
+    vertical-align: top;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    
+  }
+  .snip1539:before,
+  .snip1539:after {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    opacity: 0.6;
+  }
+  .snip1539:before {
+    border: 8px solid black;
+    top: 0px;
+    left: 20px;
+    bottom: 30px;
+    right: 40px;
+   
+  }
+  .snip1539:after {
+    background-color: black;
+    top: 30px;
+    left: 35px;
+    bottom: 0px;
+    right: 10px;
+  }
+
+  .snip1539:hover:before,
+  .snip1539.hover:before,
+  .snip1539:hover:after,
+  .snip1539.hover:after {
+    opacity: 1;
+  }
+
+
+

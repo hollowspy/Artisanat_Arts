@@ -4,14 +4,14 @@ import Menu from './menu'
 import Carousel from './carousel'
 import CardMuriel from './card-muriel'
 import FormContact from './form-contact'
-import {Container , Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import './home.css'
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title : 'Muriel NIEDZWIECKI'
+            title: 'Muriel NIEDZWIECKI'
         };
     }
     render() {
@@ -19,11 +19,18 @@ class Home extends Component {
             <div>
                 <Container fluid>
                     <Row>
-                        <Col xs={1} className="leftColum"> <ColumArtisanat></ColumArtisanat></Col>
-                        <Col xs={11}>  
+                        <Col xs={1} className="leftColum">
+                            <ColumArtisanat></ColumArtisanat>
+                        </Col>
+                        <Col xs={11}>
                             <Container fluid>
                                 <Row>
-                                    <Col xs={10} md={{ span: 8, offset: 2 }}>
+                                    <Col
+                                        xs={10}
+                                        md={{
+                                        span: 8,
+                                        offset: 2
+                                    }}>
                                         <h1>{this.state.title}</h1>
                                         <h1>Mosaique</h1>
                                     </Col>
@@ -34,14 +41,37 @@ class Home extends Component {
                                         <Carousel></Carousel>
                                     </Col>
                                 </Row>
+                                <Row className="container-muriel">
+                                    <Col md={7}>
+                                        <Container fluid className="photoAcceuilSection">
+                                            <Row>
+                                                <Col md={6}>
+                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                </Col>
+                                                <Col md={6}>
+                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                </Col>
+                                                <Col md={6}>
+                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                </Col>
+                                                <Col md={6}>
+                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                </Col>
+
+                                            </Row>
+
+                                        </Container>
+
+                                    </Col>
+
+                                </Row>
                             </Container>
                             <CardMuriel></CardMuriel>
                             <FormContact></FormContact>
                         </Col>
                     </Row>
                 </Container>
-              
-              
+
             </div>
 
         );
