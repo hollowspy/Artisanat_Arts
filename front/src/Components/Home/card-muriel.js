@@ -13,7 +13,7 @@ const CardMuriel = () => {
                 <h4 className="card-title">
                     <span>Présentation</span>
                 </h4>
-                <p classNAme="card-text">Id adipisicing non velit magna elit irure reprehenderit.
+                <p className="card-text">Id adipisicing non velit magna elit irure reprehenderit.
                     Pariatur adipisicing et minim mollit officia nisi sit do labore. Sunt duis elit
                     anim voluptate proident commodo cillum duis irure excepteur pariatur ipsum.
                     Laborum excepteur laborum nulla deserunt laboris consectetur duis voluptate

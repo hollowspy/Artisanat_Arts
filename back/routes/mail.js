@@ -13,6 +13,7 @@ router.post('/', function(req, res){
     const message = req.body.message;
     const objectMessage = req.body.object
     console.log(req.body)
+    console.log('test firstName', req.body.firstName)
     smtpTransport.sendMail({
         to : "hollowspy@free.fr", 
         subject : objectMessage,

@@ -46,16 +46,16 @@ class Home extends Component {
                                         <Container fluid className="photoAcceuilSection">
                                             <Row>
                                                 <Col md={6}>
-                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                    <figure className="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
                                                 </Col>
                                                 <Col md={6}>
-                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                    <figure className="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
                                                 </Col>
                                                 <Col md={6}>
-                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                    <figure className="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
                                                 </Col>
                                                 <Col md={6}>
-                                                    <figure class="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
+                                                    <figure className="snip1539"><img src="http://localhost:4000/images/accueil/7215.jpg" alt="sample73"/></figure>
                                                 </Col>
 
                                             </Row>
@@ -68,9 +68,14 @@ class Home extends Component {
                                     </Col>
 
                                 </Row>
+                                <Row>
+                                <Col xs={12}>
+                                <FormContact></FormContact>
+                                </Col>
+                                </Row>
                             </Container>
                            
-                            <FormContact></FormContact>
+                           
                         </Col>
                     </Row>
                 </Container>
