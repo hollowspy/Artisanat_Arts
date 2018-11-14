@@ -6,14 +6,12 @@ const smtpTransport = require('../mails/configMail.js')
 
 
 router.post('/', function(req, res){
-    console.log('je rentre dans nodemailer')
+   console.log('je rentre dans nodemailer', req.body)
     const firstName = req.body.firstName; 
     const lastName = req.body.lastName;
     const email = req.body.email;
     const message = req.body.message;
     const objectMessage = req.body.object
-    console.log(req.body)
-    console.log('test firstName', req.body.firstName)
     smtpTransport.sendMail({
         to : "hollowspy@free.fr", 
         subject : objectMessage,

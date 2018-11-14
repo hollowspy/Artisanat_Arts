@@ -13,19 +13,18 @@ class CarouselHome extends Component {
     }
 
     componentDidMount() {
-        console.log('je rentre dans le fetch')
         fetch('http://localhost:4000/api/carousel', {
                 method: 'POST',
                 headers: new Headers({'Content-Type': 'application/json'})
             })
             .then(res => res.json())
             .then(result => this.setState({srcPhoto: result}))
-        console.log('sortie du fetch', this.state.srcPhoto)
+        
     }
 
     render() {
         const {srcPhoto} = this.state
-        console.log('test fetch', {srcPhoto})
+        
         // console.log('test source', srcPhoto[0].source)
         return (
             <div>
