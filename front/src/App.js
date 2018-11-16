@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import Home from './Components/Home/home'
-import Bestiaire from './Components/Category/bestiaire';
+// import Bestiaire from './Components/Category/bestiaire';
+import Bestiaire from './Containers/Bestiaire';
 import FicheBestiaire from './Components/Category/ficheBestiaire';
 import Vegetal from './Components/Category/vegetal';
 import Deco from './Components/Category/deco';
