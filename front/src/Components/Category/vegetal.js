@@ -1,8 +1,9 @@
 import React from 'react';
+import './vegetal.css'
 
 const Vegetal = () => {
     return (
-        <div>Vegetal Work's</div>
+        <div className="ContainerVegetal">Vegetal Work's</div>
     );
 }
 

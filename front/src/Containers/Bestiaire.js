@@ -26,7 +26,7 @@ class Bestiaire extends Component {
         console.log('mon bestiaire from Redux', Bestiaire.datas)
         return (
             <div>
-                <Container className="containerData">
+                <Container className="containerBestiaire">
                     <h4>Le Bestiaire</h4>
                     <Row>
                         {!_.isEmpty(Bestiaire) && 

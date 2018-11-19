@@ -3,7 +3,7 @@
 }
 
 
-li{ 
+.letter{ 
     list-style-type: none;
     font-size: 2em;
     font-weight: bold;

@@ -1,8 +1,10 @@
 import React from 'react';
+import './deco.css';
+
 
 const Deco = () => {
     return (
-        <div>Deco Work's</div>
+        <div className="ContainerDeco">Deco Work's</div>
     );
 }
 

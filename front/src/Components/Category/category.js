@@ -5,6 +5,8 @@ import Bestiaire from '../../Containers/Bestiaire'
 import FicheBestiaire from './ficheBestiaire'
 import Vegetal from './vegetal'
 import Deco from './deco';
+import NavBar from '../Navbar';
+import './category.css'
 
 class Category extends Component {
     constructor(props) {
@@ -16,10 +18,10 @@ class Category extends Component {
             <div>
                 <Container fluid>
                     <Row>
-                        <Col sm={1}>
-                            <div>Test colum left</div>
+                        <Col sm={1} className="leftColum">
+                           <NavBar/>
                         </Col>
-                        <Col sm={11}>
+                        <Col sm={11} className="ContainerCategory">
                             <Switch>
                                 <Route exact path="/bestiaire" component={Bestiaire}/>
                                 <Route exact path="/bestiaire/:id" component={FicheBestiaire}/>

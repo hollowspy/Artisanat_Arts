@@ -18,13 +18,13 @@ class ColumArtisanat extends Component {
                 <div className="firstWord">
                     <ul>
                         {this.state.artisanat.map((letter, index) => 
-                            <li key={index}>{letter}</li>)}
+                            <li className="letter" key={index}>{letter}</li>)}
                     </ul>
                 </div>
                 <div className="secondWord">
                     <ul>
                         {this.state.art.map((letter, index) => 
-                            <li key={index}>{letter}</li>)}
+                            <li className="letter" key={index}>{letter}</li>)}
                     </ul>
                 </div>
             </div>
