@@ -13,12 +13,18 @@ class Bestiaire extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-    }
+        }
+
+  
 
     componentDidMount() {
         this
             .props
             .dispatch(fetchDatas())
+    }
+
+    onNavigate(id){
+        this.props.history.push(`./bestiaire/${id}`)
     }
 
     render() {
@@ -30,12 +36,12 @@ class Bestiaire extends Component {
                     <h4>Le Bestiaire</h4>
                     <Row>
                         {!_.isEmpty(Bestiaire) && 
-                            Bestiaire.datas.map(oeuvre => 
-                            <Col sm={6} className="containerCard">
-                                <figure class="snip1165">
+                            Bestiaire.datas.map((oeuvre, index) => 
+                            <Col sm={6} key={index} className="containerCard">
+                                <figure className="snip1165">
                                     <img src={oeuvre.Aphoto_principale} alt="sample62" className="photoPrincipale"/>
                                 <figcaption>
-                                    <button className="btn btn-default">Plus de détails</button>
+                                    <button className="btn btn-default" onClick={()=> {this.onNavigate(oeuvre.id)}}>Plus de détails</button>
                                 </figcaption>
                                 </figure>
 
