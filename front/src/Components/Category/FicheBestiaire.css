@@ -68,6 +68,8 @@
     text-align: left;
 }
 
+
+
 @media screen and (max-width: 640px) {
     .photoAnnexe {
         width : 100px; 
