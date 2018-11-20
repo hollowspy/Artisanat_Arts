@@ -20,7 +20,7 @@ class Bestiaire extends Component {
     componentDidMount() {
         this
             .props
-            .dispatch(fetchDatas())
+            .dispatch(fetchDatas('bestiaire'))
     }
 
     onNavigate(id){

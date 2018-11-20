@@ -3,7 +3,8 @@ import {Route, Switch} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import Bestiaire from '../../Containers/Bestiaire'
 import FicheBestiaire from './ficheBestiaire'
-import Vegetal from './vegetal'
+// import Vegetal from './vegetal'
+import Vegetal from '../../Containers/Vegetal'
 import Deco from './deco';
 import NavBar from '../Navbar';
 import './category.css'

@@ -1,4 +1,4 @@
-export const fetchDataBegin = () => ({
+export const fetchDataBegin = (category) => ({
     type : 'FETCH_DATA_BEGIN', 
 })
 
@@ -21,10 +21,12 @@ function handleError(response){
 
 
 
-export function fetchDatas(){
+export function fetchDatas(category){
     return(dispatch) => {
-        dispatch(fetchDataBegin()); 
-        return fetch('http://localhost:3000/api/bestiaire', {
+        dispatch(fetchDataBegin(category)); 
+        const url = `http://localhost:3000/api/${category}`;
+        console.log('url dans action redux', url)
+        return fetch(url, {
             method : 'POST'
         })
         .then(handleError)

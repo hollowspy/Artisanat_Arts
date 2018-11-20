@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
   console.log('je rentre dans back route get vegetal')
   const owner = req.body.owner
   console.log('owner', owner)
-  if (owner === 'null' || owner === 'undefined' || owner === '0'){
+  if (owner === 'null' || owner === undefined || owner === '0'){
     requeteSQL = `SELECT * from vegetal`;
   } else {
     requeteSQL = `SELECT * FROM vegetal WHERE owner = ${owner}`; 
