@@ -50,6 +50,7 @@ class CarouselHome extends Component {
                         </Carousel>
                         }
                         </Col>
+                        
                     </Row>
                 </Container>
             </div>

@@ -8,6 +8,7 @@ var rimraf = require('rimraf');
 const smtpTransport = require('../mails/configMail.js')
 
 router.post('/', (req, res) => {
+    console.log('body', req.body)
     passport.authenticate('local', (err, user) => {
         console.log('route admin', user)
         if (err) {
@@ -18,9 +19,10 @@ router.post('/', (req, res) => {
         }
         if (!user) {
             console.log('erreur dans auth / signup, mauvais identifiants')
-            return res
-                .status(400)
-                .json({flash: 'Not a yet a Success'});
+            return res                        
+                .json({flash: 'Not a yet a Success'})
+                .status(400);
+               
         }
         const token = jwt.sign(user, 'mon_token_jwt')
         return res.json({user, token, flash: 'ok'});

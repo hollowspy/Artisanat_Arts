@@ -15,6 +15,7 @@ const store = createStoreWithMiddleware(
     allReducers
 )
 
+
 ReactDOM.render(
     <Provider store={store}>
     <App />

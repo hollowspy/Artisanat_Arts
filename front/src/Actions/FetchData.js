@@ -33,8 +33,10 @@ export function fetchDatas(category){
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json));
+            console.log('json de bestiaire ou vegetal', json)
             return json
         })
         .catch(error => dispatch(fetchDataError(error)))
+        
     }
 }

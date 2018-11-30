@@ -1,0 +1,69 @@
+h2{
+    text-align: center
+}
+
+.adminButton{
+    margin-top : 5%; 
+    margin-bottom : 5%;
+}
+
+.btn-deconnexion{
+    position: absolute;
+    top:0px;
+    right: 0px;
+}
+
+.btn-default{
+    height :85px; 
+    width : 150px;
+    border-radius: 10px; 
+    display: block;
+    margin:auto;
+}
+
+
+.btn-modifier{
+    flex : 1;
+   
+}
+
+.btn-suppression{
+    flex:1;
+      
+}
+
+.detailOeuvre{
+    flex:4;
+}
+
+.blocCarousel{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.photo_carousel{
+    width : 100px;
+    height : 100px;
+    
+}
+
+@media screen and (max-width: 540px) {
+    .btn-default {
+      width: 100px;
+      height:50px;
+      margin : 10px 5px 10px 5px;
+    }
+    .fa{
+        width:50%;
+        height:50%;
+        margin:0px 10px 0px 10px;
+    }
+    .blocCarousel{
+        flex-direction: column;
+    }
+    .photo_carousel{
+        width:50px; 
+        height : 50px;
+    }
+    
+  }

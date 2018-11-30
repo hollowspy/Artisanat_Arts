@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
-import Bestiaire from '../../Containers/Bestiaire'
-import FicheBestiaire from './ficheBestiaire'
+import Bestiaire from '../Containers/Bestiaire';
+import FormAdmin from '../Containers/FormAdmin'
+import FicheBestiaire from './Category/ficheBestiaire'
 // import Vegetal from './vegetal'
-import Vegetal from '../../Containers/Vegetal'
-import Deco from './deco';
-import NavBar from '../Navbar';
+import Vegetal from '../Containers/Vegetal';
+import Deco from './Category/deco';
+import Admin from './Admin/Admin'
+import NavBar from './Navbar';
 import './category.css'
 
 class Category extends Component {
@@ -28,7 +30,9 @@ class Category extends Component {
                                 <Route exact path="/bestiaire/:id" component={FicheBestiaire}/>
                                 <Route exact path="/vegetal" component={Vegetal}/>
                                 <Route exact path="/deco" component={Deco}/>
-
+                                <Route exact path="/auth" component={FormAdmin}/>
+                                <Route exact path="/admin" component={Admin}/>
+                                
                             </Switch>
                         </Col>
                     </Row>
