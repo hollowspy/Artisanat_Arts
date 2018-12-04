@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {connect} from 'react-redux';
 import {Modal, Button} from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
 import {fetchDatas} from '../../Actions/FetchData';
+import {deleteData} from '../../Actions/DeleteData';
 import FormBestiaire from './FormBestiaire';
 
 import './Admin.css'
 
-
+const MapDispatchToProps = dispatch => {
+    return bindActionCreators({deleteData, fetchDatas}, dispatch)
+}
 
 const MapStateToProps = state => {
     return {Bestiaire: state.Bestiaire}
@@ -34,21 +38,8 @@ class AdminBestiaire extends Component {
     }
 
     componentDidMount() {
-        this
-            .props
-            .dispatch(fetchDatas('bestiaire'))
+        this.props.fetchDatas('bestiaire')
          }
-
-    // componentDidUpdate(prevProps){
-    //     // console.log('prevprops', prevProps); 
-    //     // console.log('this.props', this.props.Bestiaire)
-    //     if (this.props.Bestiaire !== prevProps.Bestiaire){
-    //         console.log('c different')
-    //     }
-    //     else {
-    //         console.log('c pareil')
-    //     }
-    // }
 
     handleClose() {
         this.setState({ 
@@ -56,7 +47,7 @@ class AdminBestiaire extends Component {
             isAlreadyExist : false, });
     }
     
-     handleShow = (oeuvre, exist) => {
+    handleShow = (oeuvre, exist) => {
          console.log('exist dans handleshow', exist)
          if (exist === 'isExist'){
             this.setState({
@@ -67,7 +58,13 @@ class AdminBestiaire extends Component {
             show: true, 
             oeuvre
             });
-      }
+    }
+
+    onDeleteOeuvre(category, id, name){
+         if (window.confirm(`Etes vous sûr de vouloir supprimer l'oeuvre suivante :  ${name}`)){
+          this.props.deleteData(category, id)  
+        }
+    }
 
 
     render() {
@@ -89,7 +86,7 @@ class AdminBestiaire extends Component {
                                  }}>
                         <div  className="detailOeuvre">{oeuvre.name}</div>
                         <FontAwesomeIcon onClick={() =>{this.handleShow({oeuvre}, 'isExist')}} className="btn-modifier" icon="edit" size="2x"/>
-                        <FontAwesomeIcon className="btn-suppression" icon="window-close" size="2x"/>
+                        <FontAwesomeIcon onClick={() =>{this.onDeleteOeuvre('bestiaire', oeuvre.id, oeuvre.name)}} className="btn-suppression" icon="window-close" size="2x"/>
                         
                         </div>
                     
@@ -115,4 +112,4 @@ class AdminBestiaire extends Component {
     }
 }
 
-export default connect(MapStateToProps)(AdminBestiaire);
+export default connect(MapStateToProps, MapDispatchToProps)(AdminBestiaire);

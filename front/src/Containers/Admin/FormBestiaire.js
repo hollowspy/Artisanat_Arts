@@ -3,10 +3,11 @@ import {Button, Modal} from 'react-bootstrap';
 import './FormModal.css';
 import { bindActionCreators } from 'redux';
 import {putFormData} from '../../Actions/PutFormData';
+import {postFormData} from '../../Actions/PostFormData';
 import { connect } from 'react-redux';
 
 const MapDispatchToProps = dispatch => {
-    return bindActionCreators({putFormData}, dispatch)
+    return bindActionCreators({putFormData, postFormData}, dispatch)
 }
 
 class FormBestiaire extends Component {
@@ -25,7 +26,7 @@ class FormBestiaire extends Component {
     }
 
     componentDidMount(){
-        if (this.props.oeuvre.oeuvre){
+        if (this.props.isExist === true){
             console.log('g bien une oeuvre', this.props.oeuvre)
             this.setState({
                 fields: {
@@ -37,6 +38,17 @@ class FormBestiaire extends Component {
                     reproduction: this.props.oeuvre.oeuvre.reproduction
                 }
             })
+        } else {
+            this.setState({
+                fields: {
+                    id : '',
+                    name: '',
+                    materials: '',
+                    width: '',
+                    height: '',
+                    reproduction: '',
+                }
+            })
         }
     }
 
@@ -46,11 +58,20 @@ class FormBestiaire extends Component {
         this.setState({fields})
     }
 
-    handleSubmit = () =>{
+    handleEditSubmit = () =>{
         const body = this.state.fields
         console.log('je rentre dans handeSubmit', this.state.fields)
         console.log('body', body)
         this.props.putFormData(body, 'bestiaire', this.state.fields.id)
+        this.props.close()
+
+    }
+
+    handleAddSubmit = () =>{
+        const body = this.state.fields
+        console.log('je rentre dans handeSubmit', this.state.fields)
+        console.log('body', body)
+        this.props.postFormData(body, 'bestiaire')
         this.props.close()
 
     }
@@ -124,7 +145,7 @@ class FormBestiaire extends Component {
                     </form>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleSubmit}>
+                        <Button variant="secondary" onClick={this.handleEditSubmit}>
                             Modifier
                         </Button>
                         <Button variant="secondary" onClick={close}>
@@ -195,7 +216,7 @@ class FormBestiaire extends Component {
                         </form>
                             </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleSubmit}>
+                            <Button variant="secondary" onClick={this.handleAddSubmit}>
                                 Ajouter
                             </Button>
                             <Button variant="secondary" onClick={close}>
