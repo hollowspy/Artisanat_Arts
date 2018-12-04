@@ -16,7 +16,7 @@ class Admin extends Component {
     }
 
     onShowCategory = (cateogry) =>{
-        console.log('je rentre dans onshow')
+        // console.log('je rentre dans onshow')
         let stateActuel = {...this.state}
         switch (cateogry) {
             case 'bestiaire':

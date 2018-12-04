@@ -25,7 +25,7 @@ export function fetchDatas(category){
     return(dispatch) => {
         dispatch(fetchDataBegin(category)); 
         const url = `http://localhost:3000/api/${category}`;
-        console.log('url dans action redux', url)
+        // console.log('url dans action redux', url)
         return fetch(url, {
             method : 'POST'
         })
@@ -33,7 +33,7 @@ export function fetchDatas(category){
         .then(res => res.json())
         .then(json => {
             dispatch(fetchDataSuccess(json));
-            console.log('json de bestiaire ou vegetal', json)
+            // console.log('json de bestiaire ou vegetal', json)
             return json
         })
         .catch(error => dispatch(fetchDataError(error)))

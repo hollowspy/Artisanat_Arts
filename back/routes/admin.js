@@ -79,6 +79,7 @@ router.delete('/bestiaire/delete/:id', (req, res) => {
 });
 
 router.put('/bestiaire/edit/:id', (req, res) => {
+    console.log('je rentre dans bestiaire edit', req.body)
     const id = req.params.id;
     console.log(id)
     const name = req.body.name;
