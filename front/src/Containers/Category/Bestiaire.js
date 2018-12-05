@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchDatas} from '../Actions/FetchData';
+import {fetchDatas} from '../../Actions/FetchData';
 import _ from 'lodash';
 import {Container, Row, Col} from 'react-bootstrap';
 import './Bestiaire.css'

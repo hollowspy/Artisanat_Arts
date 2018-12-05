@@ -31,17 +31,6 @@ class FormAdmin extends Component {
     }
 
     
-    // componentWillReceiveProps(nextProps){
-    //     console.log(nextProps)
-    //     let response = nextProps.Auth.response
-    //     let isSuccess = nextProps.Auth.isSuccess
-    //     this.setState({
-    //         response,
-    //         isSuccess
-    //     }, this.onNaviguateAdmin)
-        
-    // }
-
     componentDidUpdate(prevProps){
         console.log(prevProps, this.props)
         if (this.props.Auth !== prevProps.Auth) {
@@ -58,6 +47,10 @@ class FormAdmin extends Component {
        onNaviguateAdmin = () => {
          if (this.state.isSuccess){
             console.log('je navigue')
+            setTimeout(() => {
+                this.props.history.push('/admin')
+            },2000)
+          
         }
         else { 
             console.log('bah non')
@@ -82,7 +75,7 @@ class FormAdmin extends Component {
 
     render() {
     console.log('state render', this.state) // The state in the render is OK
-     const { Auth } = this.props
+    // const { Auth } = this.props
      let divResult = <div></div>
        if (this.state.response.flash ==='ok') {
         divResult = <div>Connexion réussie</div>

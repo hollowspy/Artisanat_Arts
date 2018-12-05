@@ -70,10 +70,7 @@ class AdminBestiaire extends Component {
 
     render() {
         const {Bestiaire} = this.props
-        // console.log('state Admin', this.state)
-        const oeuvre = this.state.oeuvre;
-        // console.log('oeuvre Admin', oeuvre)
-        
+               
         return (
             <div>
                 <h4>Administration de la table Bestiaire</h4>

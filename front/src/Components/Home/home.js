@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ColumArtisanat from './column-artisanat'
 import Menu from './menu'
-import Carousel from './carousel'
+// import Carousel from './carousel'
+import Carousel from '../../Containers/Home/Carousel'
 import CardMuriel from './card-muriel'
 import FormContact from './form-contact'
 import {Container, Row, Col} from 'react-bootstrap';

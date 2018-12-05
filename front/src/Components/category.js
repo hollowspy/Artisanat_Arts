@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
-import Bestiaire from '../Containers/Bestiaire';
+import Bestiaire from '../Containers/Category/Bestiaire';
 import FormAdmin from '../Containers/FormAdmin'
 import FicheBestiaire from './Category/ficheBestiaire'
 // import Vegetal from './vegetal'
-import Vegetal from '../Containers/Vegetal';
+import Vegetal from '../Containers/Category/Vegetal';
 import Deco from './Category/deco';
 import Admin from './Admin/Admin'
 import NavBar from './Navbar';
