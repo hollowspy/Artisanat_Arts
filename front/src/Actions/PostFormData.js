@@ -33,8 +33,9 @@ export function postFormData(form,category){
        .then(handleError)
        .then(res => res.json())
        .then(res => {
-           console.log('res', res)
-           dispatch(fetchDatas(category))
+            console.log('res', res)
+            dispatch(fetchDatas(category))
+            return res
        }, 
         err => {
             dispatch(postFormDataError(err));

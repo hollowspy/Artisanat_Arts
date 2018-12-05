@@ -4,10 +4,13 @@ import './FormModal.css';
 import { bindActionCreators } from 'redux';
 import {putFormData} from '../../Actions/PutFormData';
 import {postFormData} from '../../Actions/PostFormData';
+import {UploadPhotos} from '../../Actions/UploadPhotos'; 
+import {fetchDatas} from '../../Actions/FetchData';
+
 import { connect } from 'react-redux';
 
 const MapDispatchToProps = dispatch => {
-    return bindActionCreators({putFormData, postFormData}, dispatch)
+    return bindActionCreators({putFormData, postFormData, UploadPhotos, fetchDatas}, dispatch)
 }
 
 class FormBestiaire extends Component {
@@ -20,8 +23,14 @@ class FormBestiaire extends Component {
                 materials: '',
                 width: '',
                 height: '',
-                reproduction: '',
-            }
+                reproduction: ''
+            }, 
+            photoPrincipale : '', 
+            PhotoAnnexe2 : '', 
+            PhotoAnnexe3 : '',
+            PhotoAnnexe4 : '', 
+            PhotoAnnexe5 : '',
+            PhotoAnnexe6 : ''
         };
     }
 
@@ -47,6 +56,8 @@ class FormBestiaire extends Component {
                     width: '',
                     height: '',
                     reproduction: '',
+                    file : '',
+                    fileName : ''
                 }
             })
         }
@@ -72,16 +83,66 @@ class FormBestiaire extends Component {
         console.log('je rentre dans handeSubmit', this.state.fields)
         console.log('body', body)
         this.props.postFormData(body, 'bestiaire')
-        this.props.close()
+       .then(res => { 
+           console.log('res aussi' , res)
+           if (res.msg === "Vous venez d'ajouter une nouvelle oeuvre dans bestiaire"){
+            this.onUploadPhotos()
+           } else {
+               console.log('pas bon !!! ')
+           }
+       })
+     
 
+    }
+
+    handleChangePhotoPrincipale(e){
+        const PhotoPrincipale = e.target.files[0]
+        this.setState({
+            PhotoPrincipale
+        })
+    }
+
+
+    handleChangePhotosAnnexes(e){
+        console.log('test file', e.target.files); 
+        const PhotoAnnexe2 = e.target.files[0];
+        const PhotoAnnexe3 = e.target.files[1]
+        const PhotoAnnexe4 = e.target.files[2]
+        const PhotoAnnexe5 = e.target.files[3]
+        const PhotoAnnexe6 = e.target.files[4]
+        this.setState({
+            PhotoAnnexe2, 
+            PhotoAnnexe3,
+            PhotoAnnexe4,
+            PhotoAnnexe5, 
+            PhotoAnnexe6,
+        })
+        // this.props.close()
+    }
+
+
+    onUploadPhotos(){
+        console.log('je rentrez dans upload Photos')
+        const formData = new FormData(); 
+        formData.append('file', this.state.PhotoPrincipale, this.state.PhotoPrincipale.name)
+        formData.append('file', this.state.PhotoAnnexe2, this.state.PhotoAnnexe2.name)
+        formData.append('file', this.state.PhotoAnnexe3, this.state.PhotoAnnexe3.name)
+        formData.append('file', this.state.PhotoAnnexe4, this.state.PhotoAnnexe4.name)
+        formData.append('file', this.state.PhotoAnnexe5, this.state.PhotoAnnexe5.name)
+        formData.append('file', this.state.PhotoAnnexe6, this.state.PhotoAnnexe6.name)
+        console.log('formdata',formData)
+        this.props.UploadPhotos('upload_bestiaire', formData)
+        .then(res => {
+            if (res.message === 'source photo MAJ'){
+                 this.props.close()
+            }
+        })
     }
 
     render() {
         const close = this.props.close;
         const oeuvre = this.props.oeuvre.oeuvre;
         const isExist = this.props.isExist;
-        
-        console.log('fields FormBestiaire', this.state.fields)
         return (
             <div>
                 {isExist === true
@@ -213,8 +274,12 @@ class FormBestiaire extends Component {
                                     name="reproduction"
                                     onChange={(e) => this.handleChange('reproduction', e)}/>
                             </div>
+                            <input type="file" name="file"  onChange={(e)=> {this.handleChangePhotoPrincipale(e)}} accept="image/x-png,image/jpeg"/>
+                            <input type="file" multiple onChange={(e)=> {this.handleChangePhotosAnnexes(e)}} accept="image/x-png,image/jpeg"/>
+                            
                         </form>
                             </Modal.Body>
+                          
                         <Modal.Footer>
                             <Button variant="secondary" onClick={this.handleAddSubmit}>
                                 Ajouter
@@ -222,6 +287,9 @@ class FormBestiaire extends Component {
                             <Button variant="secondary" onClick={close}>
                                 Annuler
                             </Button>
+                            
+                        
+                           
                         </Modal.Footer>
                     </div>
                     }

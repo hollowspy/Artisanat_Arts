@@ -41,6 +41,7 @@ var upload = multer({
 
   
   router.post('/',function(req,res){
+      console.log('upload photo', req.body)
       upload(req,res, function(err) {
        
           if(err) {
