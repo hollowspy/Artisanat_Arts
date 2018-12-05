@@ -40,6 +40,7 @@ router.get('/', function(err, res){
 })
 
 router.post('/', function(req, res, next){
+    console.log('je rentre dans post carousle avec req body', req.body)
     upload(req, res, function(err){
         const id = req.body.id;
         console.log('id', id)

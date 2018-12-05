@@ -17,6 +17,7 @@ const MapStateToProps = state => {
     return {Bestiaire: state.Bestiaire}
 }
 
+
 class AdminBestiaire extends Component {
     constructor(props) {
         super(props);

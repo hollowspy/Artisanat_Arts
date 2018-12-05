@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
-import AdminBestiaire from '../../Containers/Admin/AdminBestiaire'
-import AdminVegetal from '../../Containers/Admin/AdminVegetal'
+import AdminBestiaire from '../../Containers/Admin/AdminBestiaire';
+import AdminVegetal from '../../Containers/Admin/AdminVegetal';
+import AdminCarousel from '../../Containers/Admin/AdminCarousel'
 import './Admin.css'
 
 class Admin extends Component {
@@ -139,7 +140,7 @@ class Admin extends Component {
                     <Col xs={12}>
                     {showCarrousel &&
                         <div>
-                        Affiche Carrousel
+                       <AdminCarousel />
                         </div>}
                     </Col>
 
