@@ -3,6 +3,10 @@ import {Container, Row, Col, ProgressBar} from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import './NewUser.css'
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 class FormNewUser extends Component {
     constructor(props) {
@@ -19,7 +23,8 @@ class FormNewUser extends Component {
             isValidForm: false,
             colorProgressBar: '',
             unitProgressBar: 0,
-            flash: ''
+            flash: '',
+            showPassword: false
         };
     }
 
@@ -101,6 +106,12 @@ class FormNewUser extends Component {
         }
     }
 
+    handleClickShowPassword = () => {
+        this.setState(state => ({
+            showPassword: !state.showPassword
+        }));
+    };
+
     render() {
         console.log('this state', this.state)
         const valid = this.state.errors.lastName === false && this.state.errors.firstName === false && this.state.errors.email === false && this.state.errors.password === false && this.state.errors.passwordCheck === false && this.state.isValidForm === true
@@ -146,7 +157,9 @@ class FormNewUser extends Component {
                                 <TextField
                                     required
                                     className="inputForm"
-                                    type="password"
+                                    type={this.state.showPassword
+                                    ? 'text'
+                                    : 'password'}
                                     id="password"
                                     label="Mot de passe"
                                     value={this.state.fields['password']}
@@ -156,7 +169,18 @@ class FormNewUser extends Component {
                                     helperText={this.state.errors['password'] === true
                                     ? 'Votre mot de passe doit contenir une majuscule, un chiffre et faire 8 caractères' +
                                         ' minimum'
-                                    : ' '}/>
+                                    : ' '}
+                                    InputProps={{
+                                    endAdornment: <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="Toggle password visibility"
+                                                onClick={this.handleClickShowPassword}>
+                                                {this.state.showPassword
+                                                    ? <Visibility/>
+                                                    : <VisibilityOff/>}
+                                            </IconButton>
+                                        </InputAdornment>
+                                }}/>
                             </div>
                             {this.state.unitProgressBar !== 0
                                 ? <div>
@@ -171,7 +195,9 @@ class FormNewUser extends Component {
                                 <TextField
                                     required
                                     className="inputForm"
-                                    type="password"
+                                    type={this.state.showPassword
+                                    ? 'text'
+                                    : 'password'}
                                     id="password"
                                     label="Retappez votre mot de passe"
                                     value={this.state.fields['passwordCheck']}
@@ -180,7 +206,19 @@ class FormNewUser extends Component {
                                     error={this.state.errors['passwordCheck'] === true}
                                     helperText={this.state.errors['passwordCheck'] === true
                                     ? 'Ce champs est requis'
-                                    : ' '}/>
+                                    : ' '}
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="Toggle password visibility"
+                                                    onClick={this.handleClickShowPassword}>
+                                                    {this.state.showPassword
+                                                        ? <Visibility/>
+                                                        : <VisibilityOff/>}
+                                                </IconButton>
+                                            </InputAdornment>
+                                    }}
+                                    />
                             </div>
                             <div>
                                 <TextField
