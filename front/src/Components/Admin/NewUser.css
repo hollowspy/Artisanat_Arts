@@ -1,0 +1,29 @@
+.containerNewUser{
+    min-height: 100vh;
+}
+
+.containtForm{
+    margin-top:20px;
+    padding-top : 20px; 
+    padding-bottom : 20px;
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAMz72rVoGpKybjIINVM3qjOoJe8YM63_uX2zfiyMQLNaF9p0');
+    box-shadow: 0 0 0 200px rgba(231, 225, 225, 0.3) inset; */
+   /* background-color: ghostwhite */
+   background-color:  rgba(57, 86, 90, 0.2);
+    
+}
+
+.formAuth {
+    min-width: 200px;
+    max-width: 650px;
+    width: 100%;
+    margin:auto;
+    padding : 80px;
+    /* background-color: gainsboro;
+    border:2px black solid;
+    border-radius: 30px; */
+  }
+
+  .inputForm{
+    width: 100%;
+}

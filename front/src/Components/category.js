@@ -4,9 +4,9 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Bestiaire from '../Containers/Category/Bestiaire';
 import FormAdmin from '../Containers/FormAdmin'
 import FicheBestiaire from './Category/ficheBestiaire'
-// import Vegetal from './vegetal'
 import Vegetal from '../Containers/Category/Vegetal';
 import Deco from './Category/deco';
+import NewUser from './Admin/NewUser'
 import Admin from './Admin/Admin'
 import NavBar from './Navbar';
 import './category.css'
@@ -32,6 +32,7 @@ class Category extends Component {
                                 <Route exact path="/deco" component={Deco}/>
                                 <Route exact path="/auth" component={FormAdmin}/>
                                 <Route exact path="/admin" component={Admin}/>
+                                <Route exact path="/admin/newuser" component={NewUser}/>
                                 
                             </Switch>
                         </Col>

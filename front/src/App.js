@@ -26,6 +26,7 @@ class App extends Component {
                             <Route exact path="/deco" component={Category}/>
                             <Route exact path="/auth" component={Category}/>
                             <Route exact path="/admin" component={Category}/>
+                            <Route exact path="/admin/newuser" component={Category}/>
                         </Switch>
                 </BrowserRouter>
             </div>
