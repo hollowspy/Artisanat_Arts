@@ -170,6 +170,7 @@ router.put('/vegetal/edit/:id', (req, res) => {
 });
 
 router.post('/newuser', (req, res) => {
+    console.log('je rentre dans new User back avec', req.body)
     isAlreadySign = false;
     res.setHeader('Content-Type', 'application/json');
     const hash = bcrypt.hashSync(req.body.password, 10)
@@ -199,11 +200,13 @@ router.post('/newuser', (req, res) => {
                     }))
                 }
                 else {
+                    // console.log('je crréé le nouvel admin dans le back')
                     let requeteSQL_Insert = `INSERT INTO admin 
                     (mail, password, firstName, lastName) 
                     VALUES ("${email}","${hash}","${firstName}", "${lastName}")`;
                     connection.query(requeteSQL_Insert, (err, result) => {
                         if (err === null){
+                            console.log('envoie du mail')
                             smtpTransport.sendMail({
                                 to : email, 
                                 subject : "Création d'un compte sur La MureMosaique", 

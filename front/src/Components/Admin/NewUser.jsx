@@ -21,6 +21,7 @@ class FormNewUser extends Component {
             },
             errors: {},
             isValidForm: false,
+            passwordDifficulty : '',
             colorProgressBar: '',
             unitProgressBar: 0,
             flash: '',
@@ -64,15 +65,27 @@ class FormNewUser extends Component {
         let errors = this.state.errors
         if (fields[field].length <= 5) {
             errors[field] = true;
-            this.setState({unitProgressBar: 33, colorProgressBar: 'success'})
+            this.setState({
+                        unitProgressBar: 33, 
+                        colorProgressBar: 'success',
+                        passwordDifficulty : 'faible'
+                    })
         }
         if (fields[field].match(/\w{6,}/g)) {
             errors[field] = true;
-            this.setState({unitProgressBar: 66, colorProgressBar: 'warning'})
+            this.setState({
+                        unitProgressBar: 66, 
+                        colorProgressBar: 'warning',
+                        passwordDifficulty : 'moyen'
+                        })
         }
         if (fields[field].match('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')) {
             errors[field] = false;
-            this.setState({unitProgressBar: 100, colorProgressBar: 'danger', isValidForm: true})
+            this.setState({
+                        unitProgressBar: 100, 
+                        passwordDifficulty : 'fort',
+                        colorProgressBar: 'danger', 
+                        isValidForm: true})
         }
         this.setState({fields, errors})
     }
@@ -188,9 +201,12 @@ class FormNewUser extends Component {
                                             striped
                                             variant={this.state.colorProgressBar}
                                             now={this.state.unitProgressBar}/>
+                                    
                                     </div>
+                                   
                                 : ''
-}
+                            }
+                            <div>Difficulté du mot de passe : {this.state.passwordDifficulty} </div>
                             <div>
                                 <TextField
                                     required
